@@ -1,0 +1,29 @@
+<!-- views/applications/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <div class="all-candies-body">
+    <div class="all-candies-header">
+        <h1>Your Candies</h1>
+    </div>
+  </head>
+  <body>
+    <% include ../partials/_navbar.ejs %>
+    <h1>Your Candies</h1>
+    <a href="/users/<%=user._id%>/candy/new">Add a Candy</a>
+    <!-- Add the following: -->
+    <ul>
+      <% candies.forEach((candy)=>{ %>
+      <li>
+        <a href="/users/<%= user._id %>/candies/<%= candy._id %>"></a>
+        <%= candy.name %> - <%= candy.flavor %> - Sweetness: <%= candy.sweetnessLevel %> - Price: $<%= candy.price %>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
+

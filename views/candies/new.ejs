@@ -1,0 +1,28 @@
+<!-- views/applications/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Add a New App</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Candy</h1>
+    <!-- views/applications/new.ejs -->
+
+<form action="/users/<%= user._id %>/candy" method="POST">
+<label for="name">Name:</label>
+<input type="text" name="name" id="name" required />
+<label for="flavor">Flavor:</label>
+<input type="text" name="flavor" id="flavor" required />
+<label for="sweetness">Sweetness Level (1-10):</label>
+<input type="number" name="sweetness" id="sweetness" min="1" max="10" required />
+<label for="price">Price ($):</label>
+<input type="number" name="price" id="price" step="0.01" required />
+<button type="submit">Add Candy</button>
+</form>
+</body>
+</html>

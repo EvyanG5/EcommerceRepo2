@@ -1,0 +1,53 @@
+<!-- views/applications/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Editing <%= candy.name %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <div class="edit-body">
+    <h1>Edit <%= candy.name %> - <%= candy.flavor %></h1>
+    <form
+      action="/users/<%= user._id %>/candies/<%= candy._id %>?_method=PUT"
+      method="POST"
+    >
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      value="<%= candy.name %>"
+    >
+    <label for="flavor">Flavor:</label>
+    <input
+      type="text"
+      name="flavor"
+      id="flavor"
+      value="<%= candy.flavor %>"
+    >
+    <label for="sweetnessLevel">Sweetness Level:</label>
+    <input
+      type="number"
+      name="sweetnessLevel"
+      id="sweetnessLevel"
+      value="<%= candy.sweetnessLevel %>"
+    >
+    <label for="price">Price:</label>
+    <input
+      type="number"
+      name="price"
+      id="price"
+      value="<%= candy.price %>"
+    >
+    <button type="submit">Update Candy</button>
+  </form>
+    </div>
+</body>
+</html>
+
+    
